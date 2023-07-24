@@ -13,4 +13,4 @@ default_source :supermarket
 run_list 'wp-cb::default'
 
 # Specify a custom source for a single cookbook:
-cookbook 'wp-cb', path: '.'
+cookbook 'wp-cb', path: '../'
