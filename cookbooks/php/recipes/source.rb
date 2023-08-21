@@ -20,10 +20,6 @@
 
 configure_options = node['php']['configure_options'].join(' ')
 
-include_recipe 'build-essential'
-include_recipe 'xml'
-include_recipe 'yum-epel' if node['platform_family'] == 'rhel'
-
 mysql_client 'default' do
   action :create
   only_if { configure_options =~ /mysql/ }

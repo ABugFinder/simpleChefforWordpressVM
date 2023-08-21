@@ -21,7 +21,6 @@ if node['apache']['mod_fastcgi']['install_method'] == 'package'
   package node['apache']['mod_fastcgi']['package']
 else
   if platform_family?('debian')
-    package 'build-essential'
     package node['apache']['devel_package']
   elsif platform_family?('rhel', 'fedora', 'amazon')
     package %W(gcc make libtool #{node['apache']['devel_package']} apr-devel apr)

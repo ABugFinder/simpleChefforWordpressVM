@@ -25,7 +25,7 @@
   "privacy": false,
   "chef_versions": [
     [
-      ">= 14.0"
+      ">= 13.0"
     ]
   ],
   "ohai_versions": [
