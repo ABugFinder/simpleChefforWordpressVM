@@ -4,10 +4,10 @@
 #
 # Copyright:: 2023, The Authors, All Rights Reserved.
 
-package 'httpd' do
+package 'apache2' do
   action :install
 end
 
-service 'httpd' do
+service 'apache2' do
   action [:enable, :start]
 end

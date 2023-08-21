@@ -1,14 +1,15 @@
 Vagrant.configure("2") do |config|
-    config.vm.box = "bento/centos-7"
-    config.vm.synced_folder ".", "/vagrant", disabled: true
+    config.vm.box = "ubuntu/focal64"
+    config.vm.synced_folder "cookbooks/php", "/var/chef/cookbooks/php"
     config.vbguest.auto_update = false
     config.vbguest.no_remote = true
 
+    config.vm.network "forwarded_port", guest: 80, host: 8080
 
     config.vm.provision "chef_solo" do |chef|
-      chef.arguments = "--chef-license accept"
+      chef.version = "13.0"
       chef.add_recipe "wp-cb::default"
-      chef.cookbooks_path = ["../", ".berkshelf/cookbooks"]
+      chef.cookbooks_path = ["cookbooks"]
     end
   end
   

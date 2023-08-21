@@ -20,10 +20,6 @@
 
 use_inline_resources
 
-require 'chef/mixin/shell_out'
-require 'chef/mixin/language'
-include Chef::Mixin::ShellOut
-
 # the logic in all action methods mirror that of
 # the Chef::Provider::Package which will make
 # refactoring into core chef easy
