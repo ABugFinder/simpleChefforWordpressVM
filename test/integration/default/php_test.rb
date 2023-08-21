@@ -3,7 +3,7 @@
 # The InSpec reference, with examples and extensive documentation, can be
 # found at https://www.inspec.io/docs/reference/resources/
 
-unless os.windows?
+unless os.ubuntu?
   # This is an example test, replace with your own test.
   describe user('php'), :skip do
     it { should exist }
