@@ -1,10 +1,21 @@
 Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/focal64"
     config.vm.synced_folder "cookbooks/php", "/var/chef/cookbooks/php"
+    config.vm.synced_folder "test", "/vagrant/test"
     config.vbguest.auto_update = false
     config.vbguest.no_remote = true
 
     config.vm.network "forwarded_port", guest: 80, host: 8080
+
+    # Asignando disco duro de 50GB con el plugin de vagrant vagrant-disksize
+    config.disksize.size = '30GB'
+
+    config.vm.provider "virtualbox" do |vb|
+      # Cantidad de memoria RAM para VM
+      vb.memory = "2048"
+      # Cantidad de nucleos para la VM
+      vb.cpus = 3
+    end
 
     config.vm.provision "shell", inline: <<-SHELL
       sudo apt-get update

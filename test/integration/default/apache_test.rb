@@ -3,14 +3,14 @@
 # The InSpec reference, with examples and extensive documentation, can be
 # found at https://www.inspec.io/docs/reference/resources/
 
-unless os.ubuntu?
+unless os[:name] == 'ubuntu'
   # This is an example test, replace with your own test.
-  describe user('apache'), :skip do
+  describe user('apache') do
     it { should exist }
   end
 end
 
 # This is an example test, replace it with your own test.
-describe port(80), :skip do
+describe port(80) do
   it { should_not be_listening }
 end
